@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>简历初始页面</title>
+  <!-- <script src="./js/vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="./css/index.css">
+
+</head>
+<body>
+  <div id="app">
+    <header>
+      <table>
+          <td>
+              <ul class="left">
+                <li>姓名：柏东波</li>
+                <li>性别：男</li>
+                <li>籍贯：湖南</li>
+              </ul>
+          </td>
+          <td>
+            <img src="./img/IDIMG.jpg" alt="我的个人照片" align='middle' >
+          </td>
+          <td>
+              <ul class="right">
+                <li>电话：17665288800</li>
+                <li>邮箱：909211913@qq.com</li>
+                <li>出生年月：1989年8月</li>
+              </ul>
+          </td>
+      </table>
+      
+      
+    </header>
+    <div class="content">
+      <div class="education">
+        <h1>教育背景</h1>
+        <table>
+          <tr v-for = 'item in eduBackgrounds'>
+            <td> {{ item.school}} </td>
+            <td> {{ item.profession}} </td>
+            <td> {{ item.year}} </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="work">
+        <h1>工作经历</h1>
+        <ul>
+          <li v-for='(item,index) in workExperience' @click='showContent(index)'>
+            <table>
+              <td>{{ item.company }}</td>
+              <td>{{ item.job }}</td>
+              <td>{{ item.inservice }}</td>
+            </table>
+            <p v-html='item.content' v-show='show ==index'></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="./js/index.js"></script>
+</body>
+</html>

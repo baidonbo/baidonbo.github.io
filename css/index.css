@@ -1,0 +1,50 @@
+@media(max-width:640px) {
+  html{ font-size:10px}
+}
+@media(min-width:641px) and (max-width:1199px) {
+  html{ font-size:15px}
+}
+@media(min-width:1200px) {
+  html{ font-size:20px}
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  margin: 4rem 0 2rem;
+}
+header li {
+  height: 2rem;
+  font: 1rem/2rem '';
+} 
+
+header  img {
+  border-radius: 48%;
+  margin: 0 5rem;
+  width: 10rem;
+  height: 10rem;
+}
+.content {
+  padding: 1rem;
+  background-color: rgb(219, 90, 51);
+}
+.education table {
+  border-spacing: 2rem 1rem;
+}
+.work {
+  margin: 2rem 0;
+}
+.work table {
+  border-spacing: 2rem 1rem;
+} 
+.work li{
+  cursor: pointer;
+}
