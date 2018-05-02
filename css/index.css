@@ -8,9 +8,16 @@
   html{ font-size:20px}
 }
 * {
+  text-decoration: none;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+a{
+  color: rgb(15, 15, 15);
+}
+a:hover {
+  color: rgb(219, 90, 51);
 }
 
 body {
@@ -39,8 +46,17 @@ header  img {
 .education table {
   border-spacing: 2rem 1rem;
 }
-.work {
+.skill {
   margin: 2rem 0;
+}
+.skill ul {
+  padding: .5rem 2rem;
+}
+.skill ul:last-child {
+  margin: 0 0 -1rem 0;
+}
+.skill li {
+  margin: 1rem 0;
 }
 .work table {
   border-spacing: 2rem 1rem;
@@ -48,3 +64,9 @@ header  img {
 .work li{
   cursor: pointer;
 }
+footer {
+  margin: 2rem 0;
+  font: .3rem;
+  text-align: center;
+}
+ 
