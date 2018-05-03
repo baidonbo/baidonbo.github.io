@@ -11,7 +11,22 @@
 
 </head>
 <body>
-  <div id="app">
+    
+  <div id="app" @mouseenter='stop' @mouseleave='auto' @mousewheel='myScroll($event)'>
+    <!-- 背景图层 -->
+    <div class="bgimg" :style="item" v-for='(item, index) in imgarr' v-show='index==showImg' >
+    </div>
+    <div class='slide-button'>
+      <span 
+          v-for='(item, index) in imgarr' 
+          :class='{"active":index===showImg}'
+          @click='changImg(index)' 
+         >
+      {{index + 1}}
+    </span>
+    </div>
+
+    <!-- 文字介绍图层 -->
     <header>
       <table>
           <td>
@@ -26,8 +41,8 @@
           </td>
           <td>
               <ul class="right">
-                <li>电话：<a href="tel:17665288800">17665288800</a></li>
-                <li>邮箱：<a href="mailto:baidonbo@qq.com">909211913@qq.com</a></li>
+                <li><a href="tel:17665288800">电话：17665288800</a></li>
+                <li><a href="tel:baidonbo@qq.com">邮箱：909211913@qq.com</a></li>
                 <li>出生年月：1989年8月</li>
               </ul>
           </td>
@@ -50,29 +65,30 @@
       <div class="skill">
         <h1>技能特长</h1>
         <ul>
-          <li> 1.精通DIV+CSS布局的HTML代码编写，熟练手写符合W3C标准的代码，<br>能够根据交互原型和UI设计图完整制作出网页</li>
-          <li>2.熟悉Javascript、css3和html5并能熟练运用实现网页常用特效，掌握<br>面向对象编程思想</li>
-          <li>3.熟悉vue前端框架，了解Nodejs以及less、git、github等技术和团队<br>协作开发工具</li>
-          <li>4.具备抗压能力、且有一定自学能力，能够熟练阅读使用中文API，英文<br>API可以大概看懂并运用</li>
+          <li>1.熟悉Javascript、css3和html5并能熟练运用实现网页常用特效，掌握<br>面向对象编程思想</li>
+          <li>2.熟悉vue前端框架，了解Nodejs以及less、git、github等技术和团队<br>协作开发工具</li>
+          <li>3.具备抗压能力、且有一定自学能力，能够熟练阅读使用中文API，英文<br>API可以大概看懂并运用</li>
         </ul>
       </div>
 
       <div class="work">
         <h1>工作经历</h1>
         <ul>
-          <li v-for='(item,index) in workExperience' @click='showContent(index)'>
+          <li v-for='(item,index) in workExperience' @click='showContent(index)' >
             <table>
               <td>{{ item.company }}</td>
               <td>{{ item.job }}</td>
               <td>{{ item.inservice }}</td>
             </table>
-            <p v-html='item.content' v-show='show ==index'></p>
+            <p v-html='item.content' v-show='showCont ==index'></p>
           </li>
         </ul>
       </div>
     </div>
     <footer>
-      <a title="拨打17665288800" href="tel:baidonbo@qq.com">欢迎路过的老板电话骚扰</a><a title="发送邀请909211913@qq.com" href="mailto:909211913@qq.com">和邮箱联系</a></footer>
+      欢迎路过的老板<a title="拨打17665288800" href="tel:baidonbo@qq.com">电话骚扰</a>和<a title="发送邀请909211913@qq.com" href="mailto:909211913@qq.com">邮箱联系</a>
+    
+    </footer>
   </div>
   <script src="./js/index.js"></script>
 </body>

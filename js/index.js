@@ -1,12 +1,15 @@
 var vue = new Vue({
   data: function(){
     return{
-      show: 100,
-      count: 1,
-      imgarr:['../00IMG/bing1.jpg',
-              '../00IMG/bing2.jpg',
-              '../00IMG/bing3.jpg',
-              '../00IMG/bing4.jpg',
+      showCont: null,
+      showImg: 0,
+      count: 0,
+      timer:null,
+      imgarr:[
+        'background-image:url(./img/bing1.jpg)',
+        'background-image:url(./img/bing2.jpg)',
+        'background-image:url(./img/bing3.jpg)',
+        'background-image:url(./img/bing4.jpg)',
       ],
       eduBackgrounds: [
         {
@@ -55,7 +58,51 @@ var vue = new Vue({
   },
   methods: {
     showContent: function(num){
-        this.show = num
+      this.showCont = num;
+    },
+    
+    nextImg(){
+      this.showImg++;
+      if (this.showImg > this.imgarr.length-1){
+        this.showImg = 0
+      }
+    },
+    stop(){
+      clearInterval(this.timer);
+      this.timer = null;
+      // console.log('鼠标进来了');
+    },
+    auto(){
+      this.timer = setInterval(() => {
+        this.nextImg()
+      }, 3000);
+      // console.log('鼠标出去了');
+    },
+    changImg(index){
+      this.showImg = index
+    },
+    myScroll(e){
+      // console.log(e.wheelDelta)
+      if (e.wheelDelta < 0){
+        this.nextImg()
+      }else{
+        this.showImg--
+        if(this.showImg < 0){
+          this.showImg = this.imgarr.length-1 
+        }
+      }
     },
   },
+  mounted(){
+    this.$nextTick(()=>{
+      this.timer = setInterval(() => {
+        this.nextImg()
+      }, 2000)
+    });
+    console.log(`
+  源代码网址位
+  https://github.com/baidonbo/baidonbo.github.io
+  欢迎各位联系本人
+    `)
+  }
 }).$mount('#app')
