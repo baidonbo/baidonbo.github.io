@@ -34,7 +34,7 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
-  min-width: 42rem;
+  /* min-width: 42rem; */
   min-height: 62rem;
   background-size: 100% 100%;
 }
