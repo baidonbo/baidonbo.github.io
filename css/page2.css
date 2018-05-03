@@ -1,0 +1,106 @@
+@media(max-width:640px) {
+  html{ font-size:10px}
+}
+@media(min-width:641px) and (max-width:1199px) {
+  html{ font-size:15px}
+}
+@media(min-width:1200px) {
+  html { 
+    font-size:20px
+  }
+}
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a{
+  color: rgb(15, 15, 15);
+}
+a:hover {
+  color: rgb(219, 90, 51);
+}
+
+.bgimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* 文字层 */
+.header {
+  min-width: 40rem;
+  margin-top: 2rem;
+  padding: 0 2rem;
+  background-color: #326f8b81;
+}
+
+.education {
+  padding: 1rem 2rem;
+  background-color: #1ee41781;
+}
+.education table {
+  border-spacing: 2rem 1rem;
+}
+.skill {
+  padding: 0 2rem;
+  background-color: #774170;
+}
+.skill ul {
+  padding: .5rem 1rem;
+}
+.skill ul:last-child {
+  margin-bottom: -1rem;
+}
+.skill li {
+  margin: 1rem 0;
+}
+.work {
+  padding: 1rem 2rem;
+  background-color: #d5d8187e;
+}
+.work table {
+  border-spacing: 2rem 1rem;
+} 
+.work li{
+  cursor: pointer;
+}
+
+/* 长留界面层 */
+nav a {
+  font-size: 1.5rem
+}
+nav li {
+  line-height: 1.5rem;
+  margin-top: .5rem;
+  padding-left: 1.5rem;
+  background: url(../img/icon.png) no-repeat;
+  background-size: 1.5rem auto;
+}
+.tel {
+  float: left;
+  background-position: 0 0;
+}
+.mail {
+  float: right;
+  background-position: 0 105%;
+}
+.nav-index {
+  position: absolute;
+  left: 50%;
+  margin-left: -7rem;
+  background-position: 0 10rem;
+}
+footer {
+  position: absolute;
+  bottom: .5rem;
+  left: 43%;
+  margin: 2rem 0;
+  font-size: .5rem;
+  text-align: center;
+  line-height: .5rem;
+}
+ 
