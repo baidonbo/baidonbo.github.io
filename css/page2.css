@@ -32,10 +32,11 @@ a:hover {
 
 /* 文字层 */
 .header {
-  min-width: 40rem;
-  margin-top: 2rem;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   background-color: #326f8b81;
+}
+.header ul {
+  padding: .5rem 1rem;
 }
 
 .education {
