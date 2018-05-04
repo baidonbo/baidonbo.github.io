@@ -1,14 +1,10 @@
 var vue = new Vue({
   data: function(){
     return{
-      showCont: false,
+      showCont: null,
       showImg: 0,
-      // showDiv:true,
       count: 0,
       timer:null,
-      navButton:[
-        '工作','技能','教育','首页',
-      ],
       imgarr:[
         'background-image:url(./img/bing1.jpg)',
         'background-image:url(./img/bing2.jpg)',
@@ -61,9 +57,9 @@ var vue = new Vue({
     }
   },
   methods: {
-    // showContent: function(num){
-    //   this.showCont = num;
-    // },
+    showContent: function(num){
+      this.showCont = num;
+    },
     
     nextImg(){
       this.showImg++;
@@ -74,15 +70,16 @@ var vue = new Vue({
     stop(){
       clearInterval(this.timer);
       this.timer = null;
+      // console.log('鼠标进来了');
     },
     auto(){
-      clearInterval(this.timer);
       this.timer = setInterval(() => {
         this.nextImg()
-      }, 5000);
+      }, 3000);
+      // console.log('鼠标出去了');
     },
     changImg(index){
-        this.showImg = index
+      this.showImg = index
     },
     myScroll(e){
       // console.log(e.wheelDelta)
@@ -96,27 +93,16 @@ var vue = new Vue({
       }
     },
   },
-  computed:{
-    // showDiv:function(){
-    //   if (this.refs.abc.innerText==''){
-                  // $refs.abc.innerText
-    //     return false;
-    //   }else{
-    //     return true
-    //   }
-        
-    //   // console.log(this.$refs.abc.innerText)
-    // }
-  },
   mounted(){
     this.$nextTick(()=>{
-      clearInterval(this.timer);
       this.timer = setInterval(() => {
         this.nextImg()
-      }, 5000);
+      }, 2000)
     });
     console.log(`
-  欢迎光临我的主页，恭喜发财，大吉大利。
+  源代码网址位
+  https://github.com/baidonbo/baidonbo.github.io
+  欢迎各位联系本人
     `)
   }
 }).$mount('#app')

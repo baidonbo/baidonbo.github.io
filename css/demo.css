@@ -1,0 +1,117 @@
+@media(max-width:640px) {
+  html{ font-size:10px}
+}
+@media(min-width:641px) and (max-width:1199px) {
+  html{ font-size:15px}
+}
+@media(min-width:1200px) {
+  html { 
+    font-size:20px
+  }
+}
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a{
+  color: rgb(15, 15, 15);
+}
+a:hover {
+  color: rgb(219, 90, 51);
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgimg {
+  position: absolute;
+  z-index: -100;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* min-width: 42rem; */
+  min-height: 62rem;
+  background-size: 100% 100%;
+}
+
+.slide-button {
+  position: fixed;
+  top: 50%;
+  margin-top: -5rem;
+  right: 1rem;
+}
+.slide-button > span {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-radius: 50%;
+  border: .05rem solid rgba(245, 248, 248, 0.966);
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.slide-button .active {
+  background-color: rgb(231, 17, 17);
+}
+
+/* 文字层 */
+header {
+  min-width: 40rem;
+  margin-top: 2rem;
+  padding: 0 2rem;
+  background-color: #fffbdd;
+}
+header li {
+  height: 2rem;
+  line-height: 2rem;
+} 
+header img {
+  border-radius: 48%;
+  margin: 0 5rem;
+  width: 10rem;
+  height: 10rem;
+}
+
+.education {
+  padding: 1rem 2rem;
+  background-color: #a29971;
+}
+.education table {
+  border-spacing: 2rem 1rem;
+}
+.skill {
+  padding: 0 2rem;
+  background-color: #a29971;
+}
+.skill ul {
+  padding: .5rem 1rem;
+}
+.skill ul:last-child {
+  margin-bottom: -1rem;
+}
+.skill li {
+  margin: 1rem 0;
+}
+.work {
+  padding: 1rem 2rem;
+  background-color: #a29971;
+}
+.work table {
+  border-spacing: 2rem 1rem;
+} 
+.work li{
+  cursor: pointer;
+}
+
+footer {
+  margin: 2rem 0;
+  font: .3rem;
+  text-align: center;
+}
+ 

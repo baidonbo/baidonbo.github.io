@@ -18,76 +18,151 @@
 a{
   color: rgb(15, 15, 15);
 }
-a:hover {
-  color: rgb(219, 90, 51);
+
+
+.nav {
+  z-index: 5;
+  position: fixed;
+  _position:absolute;
+  box-shadow: 0 .1rem .5rem 0 #000;
+  background: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.5rem;
+  line-height: 3.5rem;
 }
-body {
+.logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 48%;
+  vertical-align: top;
+  margin: .5rem 0 0 1rem;
+  transition:all .4s ease;
+}
+.nav a {
+  line-height: 3.rem;
+  transition:all .4s ease;
+}
+.nav a:hover {
+  text-shadow:.05rem .05rem .12rem rgb(166, 166, 166);
+}
+.nav h1 {
+  line-height: 3.5rem;
+  float: left;
+}
+.nav span {
+  position: absolute;
+  left: 4rem;
+  top: 0;
+}
+.nav li {
+  float: right;
+  margin: 0 1rem;
+}
+.nav li.active a{
+  color: rgb(22, 222, 222);
+}
+
+
+
+.wrapper {
+  position: absolute;
+  /* z-index: -100; */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.bgimg {
-  position: absolute;
-  z-index: -100;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  /* min-width: 42rem; */
-  min-height: 62rem;
-  background-size: 100% 100%;
+.w1 {
+  background-image: url(../img/bing1.jpg);
+}
+.w2 {
+  background-image: url(../img/bing2.jpg)
+}
+.w3 {
+  background-image: url(../img/bing3.jpg);
+}
+.w4 {
+  background-image: url(../img/bing4.jpg);
+  
 }
 
-.slide-button {
-  position: fixed;
-  top: 50%;
-  margin-top: -5rem;
-  right: 1rem;
+
+/* .header-enter-active {
+  transition: all 2s ease;
 }
-.slide-button > span {
-  display: block;
-  width: 1.5rem;
-  height: 1.5rem;
-  line-height: 1.5rem;
-  text-align: center;
-  border-radius: 50%;
-  border: .05rem solid rgba(245, 248, 248, 0.966);
-  cursor: pointer;
-  margin-bottom: 1rem;
+.header-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
-.slide-button .active {
-  background-color: rgb(231, 17, 17);
+.header-enter, .header-leave-to{
+  transform: translate(10000px,10000px);
+  opacity: 0;
+} */
+
+/* .education-enter-active {
+  transition: all 1s ease;
+} */
+/* .education-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+} */
+/* .education-enter /* , .education-leave-to */
+  /* transform: translate(1000px);
+  opacity: 0;
+} */ 
+
+.skill-enter-active {
+  animation: skill-in 1s;
 }
+.skill-leave-active {
+  animation: skill-in 1s reverse;
+}
+@keyframes skill-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 
 /* 文字层 */
-header {
-  min-width: 40rem;
-  margin-top: 2rem;
-  padding: 0 2rem;
+.header {
+  min-width: 36rem;
+  padding: 2rem 2rem;
   background-color: #fffbdd;
 }
-header li {
+.header li {
   height: 2rem;
   line-height: 2rem;
 } 
-header img {
+.header img {
   border-radius: 48%;
-  margin: 0 5rem;
+  margin: 0 2rem;
   width: 10rem;
   height: 10rem;
 }
 
 .education {
-  padding: 1rem 2rem;
-  background-color: #a29971;
+  padding: 2rem 2rem;
+  background-color:#fffbdd;
 }
 .education table {
   border-spacing: 2rem 1rem;
 }
+
 .skill {
-  padding: 0 2rem;
-  background-color: #a29971;
+  padding: 2rem 2rem;
+  background-color: #fffbdd;
 }
 .skill ul {
   padding: .5rem 1rem;
@@ -100,7 +175,7 @@ header img {
 }
 .work {
   padding: 1rem 2rem;
-  background-color: #a29971;
+  background-color: #fffbdd;
 }
 .work table {
   border-spacing: 2rem 1rem;
@@ -109,9 +184,48 @@ header img {
   cursor: pointer;
 }
 
+
+
+
+.slide-button {
+  position: fixed;
+  top: 50%;
+  margin-top: -5rem;
+  right: 1rem;
+  display: none;
+}
+.slide-button > span {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-radius: 50%;
+  border: .05rem solid rgba(245, 248, 248, 0.966);
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.slide-button span.active{
+  background-color: rgb(231, 17, 17);
+}
+div.slide-button:hover{
+  display: block;
+}
+
+
+
+
+
+
+
 footer {
-  margin: 2rem 0;
-  font: .3rem;
+  position: absolute;
+  z-index: 5;
+  bottom: 1rem;
+  left:50%;
+  margin-left: -4rem;
+  font-size: .5rem;
+  color: rgb(66, 66, 66);
   text-align: center;
 }
  
