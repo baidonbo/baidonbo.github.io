@@ -23,6 +23,15 @@
 a{
   color: rgb(15, 15, 15);
 }
+/* 禁止文字选中 */
+body{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 
 /* 导航栏 */
@@ -165,11 +174,12 @@ a{
 .work table {
   border-spacing: 2rem 1rem;
 } 
-.work table td {
-  text-align: center;
-}
 .work li{
   cursor: pointer;
+}
+.work p {
+  padding: 0.2rem 1rem;
+  font-size: .8rem;
 }
 
 
