@@ -2,6 +2,7 @@ var vue = new Vue({
   data: function(){
     return{
       showCont: false,
+      onOff:true,
       showImg: 0,
       // showDiv:true,
       count: 0,
@@ -143,16 +144,6 @@ var vue = new Vue({
     },
   },
   computed:{
-    // showDiv:function(){
-    //   if (this.refs.abc.innerText==''){
-                  // $refs.abc.innerText
-    //     return false;
-    //   }else{
-    //     return true
-    //   }
-        
-    //   // console.log(this.$refs.abc.innerText)
-    // }
   },
   mounted(){
     //自动运行
@@ -162,6 +153,16 @@ var vue = new Vue({
         this.nextImg()
       }, 5000);
     });
+
+    document.addEventListener('dblclick', () => {
+      if (this.onOff ===true){
+        this.stop();
+        this.onOff = false;
+      }else{
+        this.auto();
+        this.onOff = true;
+      }
+    })
 
     // 手指接触屏幕
     document.addEventListener('touchstart', event => {
@@ -185,7 +186,7 @@ var vue = new Vue({
 
     console.log(`
   欢迎光临我的主页，恭喜发财，大吉大利。
-  本页面支持触摸屏控制，双击暂停动画，单机循环。
+  本页面支持触摸屏控制，双击暂停动画，再次双击循环。
     `)
   }
 }).$mount('#app')

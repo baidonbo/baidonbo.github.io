@@ -12,13 +12,13 @@
 
 </head>
 <body>
-  <div id="app"  @dblclick='stop' @click='auto'>
+  <div id="app">
 
     <div class="nav">
         <h1>
           <a href="https://baidonbo.github.io">
             <img src="./img/IDIMG.jpg" class="logo" alt="我的头像">
-            <span title="双击暂停，单击循环">柏生</span>
+            <span title="双击暂停再次循环">柏生</span>
           </a>
         </h1>
           <ul>
@@ -104,13 +104,18 @@
         <div class="work" v-if='showImg==3'>
           <h1>工作经历</h1>
           <ul>
-            <li v-for='(item,index) in workExperience' @click='showCont=!showCont'>
-              <table>
-                <td>{{ item.company }}</td>
-                <td>{{ item.job }}</td>
-                <td>{{ item.inservice }}</td>
-              </table>
-              <p v-html='item.content' v-show='showCont'></p>
+            <li v-for='(item,index) in workExperience'>
+              <details>
+                <summary>
+                  <table>
+                  <td>{{ item.company }}</td>
+                  <td>{{ item.job }}</td>
+                  <td>{{ item.inservice }}</td>
+                </table>
+              </summary>
+              <p v-html='item.content'></p>
+              </details>
+              
             </li>
           </ul>
         </div>

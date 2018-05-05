@@ -1,3 +1,6 @@
+/* vscode新增加的指定义代码折叠方式  #region和endregion*/
+/* 媒体查询 */
+/* #region */
 @media(max-width:640px) {
   html{ font-size:10px}
 }
@@ -9,6 +12,8 @@
     font-size:20px
   }
 }
+/* #endregion */
+
 * {
   text-decoration: none;
   margin: 0;
@@ -20,6 +25,8 @@ a{
 }
 
 
+/* 导航栏 */
+/* #region */
 .nav {
   z-index: 5;
   position: fixed;
@@ -63,7 +70,7 @@ a{
 .nav li.active a{
   color: rgb(22, 222, 222);
 }
-
+/* #endregion */
 
 
 .wrapper {
@@ -78,7 +85,6 @@ a{
   justify-content: center;
   align-items: center;
 }
-
 .w1 {
   background-image: url(../img/bing1.jpg);
   background-color: rgb(99, 99, 199);
@@ -143,7 +149,6 @@ a{
   width: 10rem;
   height: 10rem;
 }
-
 .education table {
   border-spacing: 2rem 1rem;
 }
@@ -167,6 +172,7 @@ a{
 
 
 /* 该样式已被隐藏 */
+/* #region */
 .slide-button {
   position: fixed;
   top: 50%;
@@ -191,7 +197,7 @@ a{
 div.slide-button:hover{
   display: block;
 }
-
+/* #endregion */
 
 
 
