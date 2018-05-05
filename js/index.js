@@ -1,20 +1,14 @@
 var vue = new Vue({
   data: function(){
     return{
+      // 工作内容显示控制
       showCont: false,
-      onOff:true,
+      //每个循环值
       showImg: 0,
-      // showDiv:true,
-      count: 0,
+      //setInterval控制器
       timer:null,
       navButton:[
         '工作','技能','教育','首页',
-      ],
-      imgarr:[
-        'background-image:url(./img/bing1.jpg)',
-        'background-image:url(./img/bing2.jpg)',
-        'background-image:url(./img/bing3.jpg)',
-        'background-image:url(./img/bing4.jpg)',
       ],
       eduBackgrounds: [
         {
@@ -33,30 +27,34 @@ var vue = new Vue({
           year: '2005.9-2008.6'
         }
       ],
+      skillArr:[
+        '1.熟悉Javascript、css3和html5并能熟练运用实现网页常用特效，掌握面向对象编程思想',
+        '2.熟悉vue前端框架，了解Nodejs以及less、git、github等技术和团队协作开发工具',
+        '3.具备抗压能力、且有一定自学能力，能够熟练阅读使用中文API，英文API可以大概看懂并运用',
+      ],
       workExperience: [
         {
           company: '深圳市中石化深燃天然气有限公司',
           job: '运营班长',
           inservice: '2013.05-2018.01',
           content:
-            `<pre>
-    1.负责对本班人员管理，包括值班管理，技术指导，安全教育，
-    带领全班人样做好安全文明生产，优质服务。
-    2.做好本班人员配置，并提出考核意见。负责设备检查，交接班，
-    值班记录，指挥本班人员正常完成加气任务。
-            </pre>`
+          `
+          <p>1.负责对本班人员管理，包括值班管理，技术指导，安全教育，
+          带领全班人样做好安全文明生产，优质服务。</p>
+          <p>2.做好本班人员配置，并提出考核意见。负责设备检查，交接班，
+          值班记录，指挥本班人员正常完成加气任务。</p>
+          `
         },
         {
           company: '深圳市城建物业管理有限公司',
           job: '维修电工',
           inservice: '2011.07-2012.06',
           content:
-            `<pre>
-    1、负责所辖区域水电设备的日常检查、保养工作。
-    2、掌握区域水电设备运行和照明情况，独立完成一般水电维修工作。
-    3、负责填写工作交接簿和设备运行记录，认真安排好预防性维修计划，
-    严把质量关。
-            </pre>`
+          `
+          <p>1、负责所辖区域水电设备的日常检查、保养工作。</p>
+          <p>2、掌握区域水电设备运行和照明情况，独立完成一般水电维修工作。</p>
+          <p>3、负责填写工作交接簿和设备运行记录，认真安排好预防性维修计划,严把质量关。</p>
+          `
         }
       ]
     }
@@ -95,14 +93,14 @@ var vue = new Vue({
     
     nextImg(){
       this.showImg++;
-      if (this.showImg > this.imgarr.length-1){
+      if (this.showImg > this.navButton.length-1){
         this.showImg = 0
       }
     },
     preImg(){
       this.showImg--;
       if (this.showImg < 0){
-        this.showImg = this.imgarr.length-1
+        this.showImg = this.navButton.length-1
       }
     },
     stop(){
@@ -116,7 +114,8 @@ var vue = new Vue({
       }, 5000);
     },
     changImg(index){
-        this.showImg = index
+      clearInterval(this.timer);
+        this.showImg = index;
     },
     //鼠标滚动函数
     myScroll(e){
@@ -155,12 +154,10 @@ var vue = new Vue({
     });
 
     document.addEventListener('dblclick', () => {
-      if (this.onOff ===true){
-        this.stop();
-        this.onOff = false;
-      }else{
+      if (this.timer ===null){
         this.auto();
-        this.onOff = true;
+      }else{
+        this.stop();
       }
     })
 

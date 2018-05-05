@@ -84,12 +84,7 @@
         <div class="skill" v-if='showImg==2'>
             <h1>技能特长</h1>
             <ul>
-              <li>1.熟悉Javascript、css3和html5并能熟练运用实现网页常用特效，掌握
-                <br>面向对象编程思想</li>
-              <li>2.熟悉vue前端框架，了解Nodejs以及less、git、github等技术和团队
-                <br>协作开发工具</li>
-              <li>3.具备抗压能力、且有一定自学能力，能够熟练阅读使用中文API，英文
-                <br>API可以大概看懂并运用</li>
+              <li v-for='val in skillArr'>{{ val }}</li>
             </ul>
         </div>
       </transition>
@@ -104,28 +99,24 @@
         <div class="work" v-if='showImg==3'>
           <h1>工作经历</h1>
           <ul>
-            <li v-for='(item,index) in workExperience'>
-              <details>
-                <summary>
+            <li v-for='(item,index) in workExperience' @click='showCont=!showCont'>
                   <table>
                   <td>{{ item.company }}</td>
                   <td>{{ item.job }}</td>
                   <td>{{ item.inservice }}</td>
                 </table>
-              </summary>
-              <p v-html='item.content'></p>
-              </details>
-              
+                <p v-html='item.content' v-show='showCont'></p>
             </li>
+            
           </ul>
         </div>
       </transition>
     </div>
     
-
+    <!-- 不显示的，展示没有用 -->
     <div class='slide-button'>
       <span 
-          v-for='(item, index) in imgarr' 
+          v-for='(item, index) in navButton' 
           :class='{"active":index===showImg}'
           @click='changImg(index)' 
          >
@@ -136,7 +127,7 @@
     
     
     <footer>
-      欢迎路过的老板<a title="拨打17665288800" href="tel:baidonbo@qq.com">电话骚扰</a>和<a title="发送邀请909211913@qq.com" href="mailto:909211913@qq.com">邮箱联系</a>
+      欢迎路过的老板<a title="电话17665288800" href="tel:17665288800">电话骚扰</a>和<a title="邮箱909211913@qq.com" href="mailto:909211913@qq.com">邮箱联系</a>
     </footer>
   </div>
   <script src="./js/index.js"></script>
