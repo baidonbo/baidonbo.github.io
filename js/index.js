@@ -61,14 +61,47 @@ var vue = new Vue({
     }
   },
   methods: {
-    // showContent: function(num){
-    //   this.showCont = num;
-    // },
+    //鼠标滚轮事件兼容处理
+    getWheelDelta(event) {
+      if (event.wheelDelta) {
+        // 第一次调用之后惰性载入
+        this.getWheelDelta = event => event.wheelDelta;
+  
+        // 第一次调用使用
+        return event.wheelDelta;
+      } else {
+        // 兼容火狐
+        this.getWheelDelta = event => -event.detail;
+        return -event.detail;
+      }
+    },
+    // 截流函数，method 回调函数，context 上下文，delay 延迟函数，
+    // 这里没有提供是在延迟时间开始还是结束的时候执行回调函数的选项，
+    // 直接在延迟时间开始的时候执行回调
+    //handleMouseWheel = this.throttle(this.myScroll, this, this.DELAY, true);
+    throttle(method, context, delay) {
+      let wait = false;
+      return function() {
+        if (!wait) {
+          method.apply(context, arguments);
+          wait = true;
+          setTimeout(() => {
+            wait = false;
+          }, delay);
+        }
+      };
+    },
     
     nextImg(){
       this.showImg++;
       if (this.showImg > this.imgarr.length-1){
         this.showImg = 0
+      }
+    },
+    preImg(){
+      this.showImg--;
+      if (this.showImg < 0){
+        this.showImg = this.imgarr.length-1
       }
     },
     stop(){
@@ -84,15 +117,27 @@ var vue = new Vue({
     changImg(index){
         this.showImg = index
     },
+    //鼠标滚动函数
     myScroll(e){
+      clearInterval(this.timer);
       // console.log(e.wheelDelta)
-      if (e.wheelDelta < 0){
+      let delta = this.getWheelDelta(e);
+      if (delta < 0){
         this.nextImg()
       }else{
-        this.showImg--
-        if(this.showImg < 0){
-          this.showImg = this.imgarr.length-1 
-        }
+        this.preImg();
+      }
+    },
+    // 触屏事件
+    handleTouchEnd(event) {
+      clearInterval(this.timer);
+      let endY = event.changedTouches[0].pageY;
+      if (endY - this.startY < 0) {
+        // 手指向上滑动，对应页面向上滚动
+        this.preImg();
+      } else {
+        // 手指向下滑动，对应页面向下滚动
+        this.nextImg();
       }
     },
   },
@@ -109,12 +154,33 @@ var vue = new Vue({
     // }
   },
   mounted(){
+    //自动运行
     this.$nextTick(()=>{
       clearInterval(this.timer);
       this.timer = setInterval(() => {
         this.nextImg()
       }, 5000);
     });
+
+    // 手指接触屏幕
+    document.addEventListener('touchstart', event => {
+      this.startY = event.touches[0].pageY;
+    });
+    //手指离开屏幕
+    document.addEventListener('touchend', this.handleTouchEnd);
+    // 阻止触屏长按默认事件
+    document.addEventListener('touchmove', event => {
+      event.preventDefault();
+    });
+
+    //挂载鼠标滚轮事件
+    let mouseScroll =this.throttle(this.myScroll, this, 900);
+    if (navigator.userAgent.toLowerCase().indexOf('firefox') === -1) {
+      document.addEventListener('mousewheel', mouseScroll);
+    } else {
+      document.addEventListener('DOMMouseScroll', mouseScroll);
+    };
+
     console.log(`
   欢迎光临我的主页，恭喜发财，大吉大利。
     `)

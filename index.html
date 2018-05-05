@@ -12,7 +12,7 @@
 
 </head>
 <body>
-  <div id="app"  @mousewheel='myScroll($event)' @dblclick='stop' @click='auto'>
+  <div id="app"  @dblclick='stop' @click='auto'>
 
     <div class="nav">
         <h1>
@@ -63,7 +63,7 @@
  
   <div class="wrapper w2" v-show='showImg==1' ref='r22'>
     <transition name='education'
-    enter-active-class="animated bounceInRight"
+    enter-active-class="animated zoomInRight"
     >
       <div class="education" v-if='showImg==1'>
           <h1>教育背景</h1>
