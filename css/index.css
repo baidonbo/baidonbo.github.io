@@ -81,16 +81,19 @@ a{
 
 .w1 {
   background-image: url(../img/bing1.jpg);
+  background-color: rgb(99, 99, 199);
 }
 .w2 {
-  background-image: url(../img/bing2.jpg)
+  background-image: url(../img/bing2.jpg);
+  background-color: rgb(199, 99, 99);
 }
 .w3 {
   background-image: url(../img/bing3.jpg);
+  background-color: rgb(88, 188, 188);
 }
 .w4 {
   background-image: url(../img/bing4.jpg);
-  
+  background-color: rgb(33, 133, 233);
 }
 
 
