@@ -130,6 +130,7 @@ var vue = new Vue({
     },
     // 触屏事件
     handleTouchEnd(event) {
+      event.preventDefault();
       clearInterval(this.timer);
       let endY = event.changedTouches[0].pageY;
       if (endY - this.startY < 0) {
@@ -164,6 +165,7 @@ var vue = new Vue({
 
     // 手指接触屏幕
     document.addEventListener('touchstart', event => {
+      event.preventDefault();
       this.startY = event.touches[0].pageY;
     });
     //手指离开屏幕
