@@ -119,7 +119,8 @@ body{
 }
 
 
-.skill-enter-active {
+/* 在移动端渲染太慢，暂时用css */
+/* .skill-enter-active {
   animation: skill-in 2s;
 }
 .skill-leave-active {
@@ -135,7 +136,7 @@ body{
   100% {
     transform: scale(1);
   }
-}
+} */
 
 
 /* 文字层 */
