@@ -173,8 +173,9 @@ var vue = new Vue({
       event.preventDefault();
     });
 
-    //挂载鼠标滚轮事件
+    // 截流函数
     let mouseScroll =this.throttle(this.myScroll, this, 900);
+    //挂载鼠标滚轮事件
     if (navigator.userAgent.toLowerCase().indexOf('firefox') === -1) {
       document.addEventListener('mousewheel', mouseScroll);
     } else {
