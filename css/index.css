@@ -228,4 +228,7 @@ footer {
   color: rgb(66, 66, 66);
   text-align: center;
 }
+footer h1 a {
+  color: red;
+}
  
