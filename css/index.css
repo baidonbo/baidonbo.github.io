@@ -1,10 +1,12 @@
 /* vscode新增加的指定义代码折叠方式  #region和endregion*/
 /* 媒体查询 */
 /* #region */
-/* @media(max-width:640px) {
-  html{ font-size:10px}
+@media(max-width:720px) {
+  .nav {
+    padding: 1.5rem 0;
+  }
 }
-@media(min-width:641px) and (max-width:1199px) {
+/* @media(min-width:641px) and (max-width:1199px) {
   html{ font-size:15px}
 }
 @media(min-width:1200px) {
@@ -39,7 +41,7 @@ body{
 .nav {
   z-index: 5;
   position: fixed;
-  _position:absolute;
+  /* _position:absolute; */
   box-shadow: 0 .1rem .5rem 0 #000;
   background: #fff;
   top: 0;
@@ -57,7 +59,7 @@ body{
   transition:all .4s ease;
 }
 .nav a {
-  line-height: 3.rem;
+  line-height: 1rem;
   transition:all .4s ease;
 }
 .nav a:hover {
@@ -224,11 +226,14 @@ footer {
   bottom: 1rem;
   left:50%;
   margin-left: -6rem;
+  padding: 1rem;
   font-size: .5rem;
   color: rgb(66, 66, 66);
   text-align: center;
 }
 footer h1 a {
+  display: block;
+  padding-top: 1rem;
   color: red;
 }
  

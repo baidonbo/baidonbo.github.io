@@ -152,24 +152,29 @@ var vue = new Vue({
         this.nextImg()
       }, 5000);
     });
+    let wcontent = document.getElementsByClassName('wcontent')[0];
+    // let wcontent = this.$refs;
 
-    document.addEventListener('dblclick', () => {
+    wcontent.addEventListener('dblclick', () => {
       if (this.timer ===null){
+        this.nextImg();
         this.auto();
+        console.log('开始')
       }else{
         this.stop();
+        console.log('停止')
       }
     })
 
     // 手指接触屏幕
-    document.addEventListener('touchstart', event => {
+    wcontent.addEventListener('touchstart', event => {
       event.preventDefault();
       this.startY = event.touches[0].pageY;
     });
     //手指离开屏幕
-    document.addEventListener('touchend', this.handleTouchEnd);
+    wcontent.addEventListener('touchend', this.handleTouchEnd);
     // 阻止触屏长按默认事件
-    document.addEventListener('touchmove', event => {
+    wcontent.addEventListener('touchmove', event => {
       event.preventDefault();
     });
 
